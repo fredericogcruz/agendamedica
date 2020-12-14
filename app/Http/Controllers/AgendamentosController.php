@@ -43,21 +43,19 @@ class AgendamentosController extends Controller
         
         DB::beginTransaction();
         try {
-            $parametros['dt_agendamento'] = \Carbon\Carbon::parse($parametros->data.' '.$parametros->hora)->format('Y-m-d H:i');
+            $parametros['dt_agendamento'] = \Carbon\Carbon::parse($parametros['data'].' '.$parametros['hora'])->format('Y-m-d H:i');
             
             \App\Models\Atendimento::create($parametros);
             
             
             DB::commit();
             
-            
+            return redirect()->route('agendamentos.index')->with('sucess', 'Agendamento realizado com sucesso!');
         } catch (\PDOException $e) {
             DB::rollBack();
             
-            return $e->getMessage();
+            return redirect()->route('agendamentos.create')->with('error', $e->getMessage());
         }
-        
-        
     }
     
     /**
