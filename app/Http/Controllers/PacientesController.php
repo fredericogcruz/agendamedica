@@ -26,7 +26,7 @@ class PacientesController extends Controller
      */
     public function create()
     {
-        //
+        return view('pacientes.create');
     }
     
     /**
@@ -37,7 +37,22 @@ class PacientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $parametros = $request->all();
+        
+        DB::beginTransaction();
+        try {
+            
+            \App\Models\Paciente::create($parametros);
+            
+            
+            DB::commit();
+            
+            return redirect()->route('pacientes.index')->with('sucess', 'Paciente cadastrado com sucesso!');
+        } catch (\PDOException $e) {
+            DB::rollBack();
+            
+            return redirect()->route('pacientes.create')->with('error', $e->getMessage());
+        }
     }
     
     /**
@@ -95,6 +110,7 @@ class PacientesController extends Controller
     {
         $coPacientes = DB::table("pacientes")
                         ->select(['id', 'nome', 'sexo', 'rg', 'idade', 'created_at', 'updated_at'])
+                        ->orderByDesc('created_at')
                         ->get();
 
         foreach ($coPacientes as $paciente){

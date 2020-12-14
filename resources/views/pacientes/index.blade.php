@@ -4,6 +4,7 @@
     </x-slot>
 	
 	
+
 	
 	
     <div class="py-12">
@@ -11,6 +12,15 @@
             <h2>Pacientes</h2>
             <hr>
         </div>
+        
+
+        <div class="row">
+        	<div class="col-lg-10"></div>
+        	<a href="/pacientes/create">
+        		<button type="button" class="btn btn-success">Cadastrar Paciente</button>
+        	</a>
+        </div>
+
         
         <script type="text/javascript" defer="true">
 			setTimeout(function(){

@@ -12,7 +12,7 @@
         <div class="row">
         	<div class="col-11"></div>
         	<a href="/agendamentos/create">
-        		<button type="button" class="btn btn-success">Agendar</button>
+        		<button type="button" class="btn btn-success">Agendar Consulta</button>
         	</a>
         </div>
         
