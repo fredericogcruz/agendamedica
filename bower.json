@@ -1,0 +1,22 @@
+{
+  "name": "agendamedica",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Frederico Cruz <frederico.cruz@datacruz.com.br>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "datatables.net-responsive": "^2.2.6",
+    "datatables.net": "^1.10.22",
+    "datatables.net-dt": "^3.2.2"
+  }
+}
