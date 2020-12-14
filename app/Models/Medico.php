@@ -18,6 +18,7 @@ class Medico extends Model
         'id',
         'nome',
         'crm',
+        'especialidade',
         'uf',
         'created_at',
         'updated_at',

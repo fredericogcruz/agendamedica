@@ -26,7 +26,7 @@ class MedicosController extends Controller
      */
     public function create()
     {
-        //
+        return view('medicos.create');
     }
     
     /**
@@ -37,7 +37,21 @@ class MedicosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $parametros = $request->all();
+        
+        DB::beginTransaction();
+        try {
+            \App\Models\Medico::create($parametros);
+            
+            
+            DB::commit();
+            
+            return redirect()->route('medicos.index')->with('sucess', 'Médico cadastrado com sucesso!');
+        } catch (\PDOException $e) {
+            DB::rollBack();
+            
+            return redirect()->route('medicos.create')->with('error', $e->getMessage());
+        }
     }
     
     /**

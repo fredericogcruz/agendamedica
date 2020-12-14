@@ -7,6 +7,14 @@
             <hr>
         </div>
         
+
+        <div class="row">
+        	<div class="col-lg-10"></div>
+        	<a href="/medicos/create">
+        		<button type="button" class="btn btn-success">Cadastrar Médico</button>
+        	</a>
+        </div>
+        
         <script type="text/javascript" defer="true">
 			setTimeout(function(){
 
