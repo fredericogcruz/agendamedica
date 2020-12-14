@@ -10,7 +10,7 @@
         </div>
         
         <div class="row">
-        	<div class="col-11"></div>
+        	<div class="col-10"></div>
         	<a href="/agendamentos/create">
         		<button type="button" class="btn btn-success">Agendar Consulta</button>
         	</a>
@@ -36,7 +36,7 @@
 	                } );
 	            } );
 	            
-			}, 50);
+			}, 500);
         </script>
 
                 

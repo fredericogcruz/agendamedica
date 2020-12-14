@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
 class UsuariosController extends Controller
@@ -26,7 +27,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        //
+        return view('usuarios.create');
     }
 
     /**
@@ -37,7 +38,23 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $parametros = $request->all();
+        
+        DB::beginTransaction();
+        try {
+            
+            $parametros['password'] = Hash::make($parametros['password']);
+            \App\Models\User::create($parametros);
+            
+            
+            DB::commit();
+            
+            return redirect()->route('usuarios.index')->with('sucess', 'Usuário cadastrado com sucesso!');
+        } catch (\PDOException $e) {
+            DB::rollBack();
+            
+            return redirect()->route('usuarios.create')->with('error', $e->getMessage());
+        }
     }
 
     /**

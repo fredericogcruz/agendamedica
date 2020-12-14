@@ -10,6 +10,14 @@
         </div>
 
         
+        <div class="row">
+        	<div class="col-lg-10"></div>
+        	<a href="/usuarios/create">
+        		<button type="button" class="btn btn-success">Cadastrar Usuário</button>
+        	</a>
+        </div>
+        
+        
         <script type="text/javascript" defer="true">
 			setTimeout(function(){
 

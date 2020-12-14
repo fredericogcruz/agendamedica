@@ -1,44 +1,36 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      		Usuários
-        </h2>
-    </x-slot>
-
+    <x-slot name="header"></x-slot>
+	
     <div class="py-12">
+        <div class="p-5">
+            <h2>Cadastrar Usuário</h2>
+            <hr>
+        </div>
+        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <form>
-                  <div class="form-group">
-                    <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
+            <div class="col-lg-6 p-5">
+                <form action="{{ route('usuarios.store') }}" method="post" id="frmAgenda" name="frmAgenda" enctype="multipart/form-data">
+                	{!! csrf_field() !!}
+        			
+				   <div class="form-group">
+                   	    <label for="name"><span class="glyphicon glyphicon-user"></span> Nome </label>
+                   	    <input type="text" id="name" name="name" required class="form-control">
+                   </div>
+
+				   <div class="form-group">
+                   	    <label for="email"><span class="glyphicon glyphicon-user"></span> E-mail</label>
+                   	    <input type="text" id="email" name="email" required class="form-control">
+                   </div>
+
+				   <div class="form-group">
+                   	    <label for="password"><span class="glyphicon glyphicon-user"></span> Senha</label>
+                   	    <input type="password" id="password" name="password" required class="form-control">
+                   </div>		   
+                   
+                   <button type="submit" class="btn btn-success">Cadastrar</button>
                 </form>
             </div>
         </div>
     </div>
+
 </x-app-layout>
