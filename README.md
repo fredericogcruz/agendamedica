@@ -1,4 +1,4 @@
-# Dependências
+## Dependências
 
 Laravel 	v8.18.1
 bootstrap	v4.5.3
