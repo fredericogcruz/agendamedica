@@ -27,6 +27,21 @@
                 </div>
             </header>
 
+            @if(\Session::has('error'))
+                <div class="alert alert-danger"> 
+                	<i class=""><b>Um erro inesperado ocorreu:</b></i> <br>{!! \Session::get('error') !!}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+            @endif
+            
+            
+            @if(\Session::has('sucess'))
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                <h3 class="text-success"><i class="fa fa-check-circle"></i> Sucesso!</h3> {!! \Session::get('sucess') !!}
+            </div>
+            @endif
+            
             <!-- Page Content -->
             <main>
                 {{ $slot }}
