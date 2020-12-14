@@ -28,6 +28,7 @@
         "datatables": "^1.10.18",
         "datatables.net-bs4": "^1.10.22",
         "datatables.net-buttons-bs4": "^1.6.5",
-        "jquery": "^3.5.1"
+        "jquery": "^3.5.1",
+        "jquery-autocomplete": "^1.2.8"
     }
 }

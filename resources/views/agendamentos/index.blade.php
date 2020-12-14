@@ -9,6 +9,14 @@
             <hr>
         </div>
         
+        <div class="row">
+        	<div class="col-11"></div>
+        	<a href="/agendamentos/create">
+        		<button type="button" class="btn btn-success">Agendar</button>
+        	</a>
+        </div>
+        
+        
         <script type="text/javascript" defer="true">
 			setTimeout(function(){
 
@@ -20,11 +28,10 @@
                 	  "scrollY": '40%',
 	                  "ajax": "{{route('ajax.agendamentos.consultar')}}",
                       "columns": [
-                          {"data": 'id'},
                           {"data": "dt_agendamento"},
                           {"data": "nomePaciente"},
                           {"data": "nomeMedico"},
-                          {"data":"action", orderable:false, searchable:false}
+                          {"data": "action", orderable:false, searchable:false}
                       ]
 	                } );
 	            } );
@@ -41,7 +48,6 @@
                              	<table id="tblAgendamentos" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Dt.Agendamento</th>
                                             <th>Paciente</th>
                                             <th>Médico</th>

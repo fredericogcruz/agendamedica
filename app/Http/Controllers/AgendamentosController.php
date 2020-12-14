@@ -25,7 +25,10 @@ class AgendamentosController extends Controller
      */
     public function create()
     {
-        //
+        $coMedicos = DB::table("medicos")->orderBy("medicos.nome", "asc")->get();
+        $coPacientes = DB::table("pacientes")->orderBy("pacientes.nome", "asc")->get();
+        
+        return view('agendamentos.create', compact('coMedicos', 'coPacientes'));
     }
     
     /**
@@ -36,7 +39,25 @@ class AgendamentosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $parametros = $request->all();
+        
+        DB::beginTransaction();
+        try {
+            $parametros['dt_agendamento'] = \Carbon\Carbon::parse($parametros->data.' '.$parametros->hora)->format('Y-m-d H:i');
+            
+            \App\Models\Atendimento::create($parametros);
+            
+            
+            DB::commit();
+            
+            
+        } catch (\PDOException $e) {
+            DB::rollBack();
+            
+            return $e->getMessage();
+        }
+        
+        
     }
     
     /**
@@ -103,7 +124,7 @@ class AgendamentosController extends Controller
                         
         foreach ($coAtendimentos as $atendimento){
             $atendimento->dt_agendamento = \Carbon\Carbon::parse($atendimento->dt_agendamento)->format('d/m/Y H:i');
-        }               
+        }          
                         
         return DataTables::of($coAtendimentos)->addColumn('action', function ($coAtendimentos) {
             return '<a href="#top">Alterar</a> <a href="#top">Excluir</a>';

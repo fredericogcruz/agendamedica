@@ -47,3 +47,10 @@
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
+
+/**
+ * @preserve jQuery Autocomplete plugin v1.2.6
+ * @homepage http://xdsoft.net/jqplugins/autocomplete/
+ * @license MIT - MIT-LICENSE.txt
+ * (c) 2014, Chupurnov Valeriy <chupurnov@gmail.com>
+ */

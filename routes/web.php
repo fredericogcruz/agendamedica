@@ -29,6 +29,8 @@ Route::get("/getPacientes", "App\Http\Controllers\PacientesController@ajaxConsul
 Route::get("/getMedicos", "App\Http\Controllers\MedicosController@ajaxConsultarMedicos")->name("ajax.medicos.consultar");
 Route::get("/getAgendamentos", "App\Http\Controllers\AgendamentosController@ajaxConsultarAgendamentos")->name("ajax.agendamentos.consultar");
 
+Route::get("/getMedicoAutoComplete", "App\Http\Controllers\AgendamentosController@ajaxConsultarMedicoAutoComplete")->name("ajax.medicoautocomplete.consultar");
+
 
 
 
